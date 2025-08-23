@@ -1,11 +1,12 @@
 const buttons = document.querySelectorAll('.buttons button');
 const playerChoice = document.querySelector('.player-choice');
-const computerChoice = document.querySelector('.computer-choice');
+const computerChoice = document.getElementById('computer-result');;
 const result = document.querySelector("#result");
 const winsEl = document.getElementById("wins");
 const lossesEl = document.getElementById("losses");
 const drawsEl = document.getElementById("draws");
 const resetGameEl = document.getElementById("resetGame");
+const loader = document.getElementById('loader');
 
 
 const options = ['rock', 'paper', 'scissors'];
@@ -30,6 +31,7 @@ function updateScore() {
     winsEl.textContent = winsCount;
     lossesEl.textContent = lossesCount;
     drawsEl.textContent = drawsCount;
+
 }
 
 
@@ -42,20 +44,26 @@ function startGame() {
             const player = choice;
             playerChoice.innerHTML = icons[player]
 
-
             printComputerChoice(player);
         });
     });
 }
 
-
 function printComputerChoice(player) {
-    const computerRandomChoice = options[Math.floor(Math.random() * 3)];
-    computerChoice.innerHTML = icons[computerRandomChoice];
 
+    loader.classList.remove('hidden');
+    computerChoice.innerHTML = '';
 
-    getWinner(player, computerRandomChoice);
+    setTimeout(() => {
+        const computerRandomChoice = options[Math.floor(Math.random() * 3)];
+        computerChoice.innerHTML = icons[computerRandomChoice];
+
+        loader.classList.add('hidden');
+
+        getWinner(player, computerRandomChoice);
+    }, 1000)
 }
+
 
 function getWinner(player, computer) {
     if (player === computer) {

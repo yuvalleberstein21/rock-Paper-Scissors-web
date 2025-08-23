@@ -68,6 +68,7 @@ body {
   align-items: center;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
+  position: relative;
 }
 #battle-arena i {
   font-size: 25px;
@@ -113,6 +114,30 @@ body {
   border: none;
   font-size: 15px;
   font-weight: 600;
+}
+
+.loader {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=styles.css.map */
