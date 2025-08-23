@@ -1,7 +1,7 @@
 const buttons = document.querySelectorAll('.buttons button');
-const playerChoice = document.querySelector('.player-choice');
+const playerChoice = document.getElementById('player-choice');
 const computerChoice = document.getElementById('computer-result');;
-const result = document.querySelector("#result");
+const result = document.getElementById("result");
 const winsEl = document.getElementById("wins");
 const lossesEl = document.getElementById("losses");
 const drawsEl = document.getElementById("draws");
@@ -23,30 +23,29 @@ const rules = {
     scissors: "paper"     // מספריים מנצח נייר
 };
 
-let winsCount = 0;
-let lossesCount = 0;
-let drawsCount = 0;
+let winsCount = 0, lossesCount = 0, drawsCount = 0;
 
 function updateScore() {
     winsEl.textContent = winsCount;
     lossesEl.textContent = lossesCount;
     drawsEl.textContent = drawsCount;
-
 }
-
 
 function startGame() {
     updateScore();
 
     buttons.forEach((btn) => {
         btn.addEventListener('click', () => {
-            const choice = btn.dataset.choice;
-            const player = choice;
+            const player = btn.dataset.choice;
             playerChoice.innerHTML = icons[player]
 
             printComputerChoice(player);
         });
     });
+}
+
+function getRandomChoice() {
+    return options[Math.floor(Math.random() * 3)];
 }
 
 function printComputerChoice(player) {
@@ -55,7 +54,7 @@ function printComputerChoice(player) {
     computerChoice.innerHTML = '';
 
     setTimeout(() => {
-        const computerRandomChoice = options[Math.floor(Math.random() * 3)];
+        const computerRandomChoice = getRandomChoice();
         computerChoice.innerHTML = icons[computerRandomChoice];
 
         loader.classList.add('hidden');
@@ -80,9 +79,7 @@ function getWinner(player, computer) {
 }
 
 function resetGame() {
-    winsCount = 0;
-    lossesCount = 0;
-    drawsCount = 0;
+    winsCount = lossesCount = drawsCount = 0;
     updateScore();
     playerChoice.innerHTML = "";
     computerChoice.innerHTML = "";
