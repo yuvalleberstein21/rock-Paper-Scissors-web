@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-header" dir="rtl">
+            <button class="resetBtn" onclick="resetGame()">Reset game</button>
+          <h1>Rock Paper Scissors</h1>
+        </div>
+        <div class="buttons">
+          <button data-choice="scissors">
+            <i class="fa-solid fa-hand-scissors"></i>
+        </button>
+          <button data-choice="paper">
+            <i class="fa-solid fa-hand"></i>
+        </button>
+          <button data-choice="rock">
+            <i class="fa-solid fa-hand-back-fist"></i>
+        </button>
+        </div>
+        <div id="battle-arena" dir="rtl">
+            <div class="player-choice"></div>
+            <div id="vs">VS</div>
+            <div class="computer-choice"></div>
+      </div>
+        <div id="result">Results:</div>
+        <div id="scoreboard">
+            <div class="score">
+                <span>Wins</span>
+                <span id="wins" class="score-value"></span>
+            </div>
+            <div class="score">
+                <span>Losses</span>
+                <span id="losses" class="score-value"></span>
+            </div>
+            <div class="score">
+                <span>Draws</span>
+                <span id="draws" class="score-value"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

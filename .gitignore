@@ -1,0 +1,23 @@
+# Build artifacts
+dist/
+build/
+*.map
+
+# Node (אם אתה משתמש ב-sass דרך npm)
+node_modules/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
