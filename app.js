@@ -1,12 +1,4 @@
-const buttons = document.querySelectorAll('.buttons button');
-const playerChoice = document.getElementById('player-choice');
-const computerChoice = document.getElementById('computer-result');;
-const result = document.getElementById("result");
-const winsEl = document.getElementById("wins");
-const lossesEl = document.getElementById("losses");
-const drawsEl = document.getElementById("draws");
-const resetGameEl = document.getElementById("resetGame");
-const loader = document.getElementById('loader');
+import { elements } from "./domElements.js";
 
 
 const options = ['rock', 'paper', 'scissors'];
@@ -18,26 +10,26 @@ const icons = {
 };
 
 const rules = {
-    rock: "scissors",     // אבן מנצח מספריים
-    paper: "rock",        // נייר מנצח אבן
-    scissors: "paper"     // מספריים מנצח נייר
+    rock: "scissors",
+    paper: "rock",
+    scissors: "paper"
 };
 
 let winsCount = 0, lossesCount = 0, drawsCount = 0;
 
 function updateScore() {
-    winsEl.textContent = winsCount;
-    lossesEl.textContent = lossesCount;
-    drawsEl.textContent = drawsCount;
+    elements.wins.textContent = winsCount;
+    elements.losses.textContent = lossesCount;
+    elements.draws.textContent = drawsCount;
 }
 
 function startGame() {
     updateScore();
 
-    buttons.forEach((btn) => {
+    elements.buttons.forEach((btn) => {
         btn.addEventListener('click', () => {
             const player = btn.dataset.choice;
-            playerChoice.innerHTML = icons[player]
+            elements.playerChoice.innerHTML = icons[player];
 
             printComputerChoice(player);
         });
@@ -49,30 +41,27 @@ function getRandomChoice() {
 }
 
 function printComputerChoice(player) {
-
-    loader.classList.remove('hidden');
-    computerChoice.innerHTML = '';
+    elements.loader.classList.remove('hidden');
+    elements.computerChoice.innerHTML = '';
 
     setTimeout(() => {
         const computerRandomChoice = getRandomChoice();
-        computerChoice.innerHTML = icons[computerRandomChoice];
+        elements.computerChoice.innerHTML = icons[computerRandomChoice];
 
-        loader.classList.add('hidden');
-
+        elements.loader.classList.add('hidden');
         getWinner(player, computerRandomChoice);
-    }, 1000)
+    }, 1000);
 }
-
 
 function getWinner(player, computer) {
     if (player === computer) {
-        result.textContent = "It's a tie! 🤝";
+        elements.result.textContent = "It's a tie! 🤝";
         drawsCount++;
     } else if (rules[player] === computer) {
-        result.textContent = "You win! 🎉";
+        elements.result.textContent = "You win! 🎉";
         winsCount++;
     } else {
-        result.textContent = "Computer wins! 💻";
+        elements.result.textContent = "Computer wins! 💻";
         lossesCount++;
     }
     updateScore();
@@ -81,14 +70,11 @@ function getWinner(player, computer) {
 function resetGame() {
     winsCount = lossesCount = drawsCount = 0;
     updateScore();
-    playerChoice.innerHTML = "";
-    computerChoice.innerHTML = "";
+    elements.playerChoice.innerHTML = "";
+    elements.computerChoice.innerHTML = "";
 }
 
 startGame();
-
-
-
 
 
 
