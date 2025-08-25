@@ -14,6 +14,8 @@
 
 ---
 
+#### try it out 🚀: [Live-demo](https://yuvalleberstein21.github.io/rock-Paper-Scissors-web/)
+
 ## 📸 צילום מסך
 (כאן אפשר לשים תמונה שתראה איך זה נראה במשחק)
 
