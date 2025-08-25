@@ -7,5 +7,6 @@ export const elements = {
     losses: document.getElementById('losses'),
     draws: document.getElementById('draws'),
     resetGame: document.getElementById('resetGame'),
-    loader: document.getElementById('loader')
+    loader: document.getElementById('loader'),
+    resetBtn: document.getElementById("resetBtn")
 };

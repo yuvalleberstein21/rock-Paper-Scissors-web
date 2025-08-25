@@ -50,7 +50,7 @@ function printComputerChoice(player) {
 
         elements.loader.classList.add('hidden');
         getWinner(player, computerRandomChoice);
-    }, 1000);
+    }, 500);
 }
 
 function getWinner(player, computer) {
@@ -67,6 +67,7 @@ function getWinner(player, computer) {
     updateScore();
 }
 
+resetBtn.addEventListener("click", resetGame);
 function resetGame() {
     winsCount = lossesCount = drawsCount = 0;
     updateScore();
