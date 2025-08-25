@@ -67,13 +67,15 @@ function getWinner(player, computer) {
     updateScore();
 }
 
-resetBtn.addEventListener("click", resetGame);
+
 function resetGame() {
     winsCount = lossesCount = drawsCount = 0;
     updateScore();
     elements.playerChoice.innerHTML = "";
     elements.computerChoice.innerHTML = "";
 }
+
+window.resetGame = resetGame;
 
 startGame();
 
